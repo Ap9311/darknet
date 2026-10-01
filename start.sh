@@ -1,0 +1,10 @@
+#!/bin/sh
+mkdir -p /var/lib/tor/hidden
+tor -f /etc/tor/torrc &
+(
+ for i in $(seq 1 60); do
+  [ -f /var/lib/tor/hidden/hostname ] && cp /var/lib/tor/hidden/hostname /opt/site/onion.txt && echo "=== ONION: $(cat /var/lib/tor/hidden/hostname) ===" && exit 0
+  sleep 1
+ done
+) &
+busybox httpd -f -p "${PORT:-8080}" -h /opt/site
