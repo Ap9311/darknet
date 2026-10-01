@@ -1,6 +1,6 @@
 #!/bin/sh
 mkdir -p /var/lib/tor/hidden
-chown -R tor:tor /var/lib/tor
+chown -R 0:0 /var/lib/tor
 chmod 700 /var/lib/tor/hidden
 tor -f /etc/tor/torrc &
 (
