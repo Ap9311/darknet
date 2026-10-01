@@ -7,4 +7,4 @@ tor -f /etc/tor/torrc &
   sleep 1
  done
 ) &
-busybox httpd -f -p "${PORT:-8080}" -h /opt/site
+exec darkhttpd /opt/site --port "${PORT:-8080}"

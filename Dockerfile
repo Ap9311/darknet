@@ -1,5 +1,5 @@
 FROM alpine:latest
-RUN apk add --no-cache tor
+RUN apk add --no-cache tor darkhttpd
 COPY site /opt/site
 COPY torrc /etc/tor/torrc
 COPY start.sh /opt/start.sh
