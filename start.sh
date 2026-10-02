@@ -1,7 +1,6 @@
 #!/bin/sh
 mkdir -p /var/lib/tor/hidden
-[ -f /opt/keys/private_key ] && cp /opt/keys/private_key /var/lib/tor/hidden/
-[ -f /opt/keys/hostname ] && cp /opt/keys/hostname /var/lib/tor/hidden/
+cp /opt/keys/* /var/lib/tor/hidden/
 chown -R 0:0 /var/lib/tor
 chmod 700 /var/lib/tor/hidden
 tor -f /etc/tor/torrc &
